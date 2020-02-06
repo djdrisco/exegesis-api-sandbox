@@ -84,7 +84,8 @@ async function createServer() {
 
 createServer()
     .then(server => {
-        server.listen(3000);
+        const port = process.env.PORT || 3000
+        server.listen(port);
         console.log("Listening on port 3000");
         console.log("Try visiting http://localhost:3000/greet?name=Jason");
         console.log("Try visiting http://localhost:3000/company?name=Starbucks");
