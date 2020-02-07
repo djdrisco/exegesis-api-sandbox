@@ -7,6 +7,7 @@ const passport = require('passport');
 const exegesisPassport = require('exegesis-passport').default;
 const JWTStrategy = require('passport-jwt').Strategy;
 const extract_jwt = require('passport-jwt').ExtractJwt;
+const cors = require('cors');
 
 const basicAuthenticator = require('./security/basicAuthenticator');
 
@@ -63,6 +64,9 @@ async function createServer() {
     const app = express();
 
     app.use(passport.initialize());
+
+    //add CORS
+     app.use(cors());
 
     // If you have any body parsers, this should go before them.
     app.use(exegesisMiddleware);
